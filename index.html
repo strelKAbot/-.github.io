@@ -3,73 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Мой лендинг с Rive и Coze</title>
+  <title>Мой ИИ-помощник от Coze</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: #f8f9fa;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       overflow-x: hidden;
     }
+
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 30px;
-    }
-    #rive-canvas {
-      width: 100%;
       max-width: 600px;
-      margin: 40px auto;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      overflow: hidden;
+      padding: 40px 20px;
     }
-    #coze-widget {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Чат будет автоматически отображаться в правом нижнем углу */
+    /* Не нужно стилизовать — он сам прикрепится */
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>Привет! Это мой лендинг</h1>
-    <p>Здесь работает анимация Rive и ИИ-чат Coze</p>
-
-    <!-- Анимация Rive -->
-    <div id="rive-canvas"></div>
+    <h1>Привет! Я твой ИИ-помощник</h1>
+    <p>Задай мне любой вопрос — я помогу с ответом, идеей или поддержкой.</p>
   </div>
 
-  <!-- Rive скрипт -->
-  <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
-  <script>
-    const canvas = document.createElement('canvas');
-    document.getElementById('rive-canvas').appendChild(canvas);
+  <!-- 🔥 ТВОЙ РАБОЧИЙ КОД Coze Web SDK -->
+  <script type="text/javascript">
+    var webSdkScript = document.createElement('script');
+    webSdkScript.src = 'https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js';
+    document.head.appendChild(webSdkScript);
 
-    const rive = new Rive({
-      src: 'https://disk.yandex.ru/d/QJ5yk3FJQoHDSQ?filename=cactus.riv', // ← РАБОЧАЯ ССЫЛКА!
-      canvas: canvas,
-      autoplay: true,
-    });
-  </script>
-
-  <!-- ИИ-чат Coze (вставь свой ID!) -->
-  <div id="coze-widget"></div>
-  <script>
-    (function() {
-      const script = document.createElement('script');
-      script.src = 'https://coze.cn/widget/твой-идентификатор-бота.js'; // ← ЗАМЕНИ ЭТО!
-      script.async = true;
-      document.head.appendChild(script);
-    })();
+    webSdkScript.onload = function () {
+      new CozeWebSDK.WebChatClient({
+        "config": {
+          "type": "app",
+          "appInfo": {
+            "appId": "7547928779721572408",
+            "workflowId": "7549868921328648248"
+          }
+        },
+        "auth": {
+          "type": "token",
+          "token": "pat_********",
+          onRefreshToken: function () {
+            return "pat_********"
+          }
+        }
+      });
+    };
   </script>
 
 </body>
