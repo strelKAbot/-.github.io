@@ -30,7 +30,6 @@
       border-radius: 10px;
       overflow: hidden;
     }
-    /* Стиль для чата Coze */
     #coze-widget {
       position: fixed;
       bottom: 20px;
@@ -49,17 +48,16 @@
     <div id="rive-canvas"></div>
   </div>
 
-  <!-- Rive скрипт (замени URL на свой) -->
+  <!-- Rive скрипт -->
   <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
   <script>
     const canvas = document.createElement('canvas');
     document.getElementById('rive-canvas').appendChild(canvas);
 
     const rive = new Rive({
-      src: 'https://cdn.rive.app/animations/your-animation.riv', // ← ЗАМЕНИ ЭТО НА СВОЙ ФАЙЛ!
+      src: 'https://disk.yandex.ru/d/B_LefXO70VROqQ?filename=my_first_button.riv', // ← РАБОЧАЯ ССЫЛКА!
       canvas: canvas,
       autoplay: true,
-      stateMachines: 0, // если есть SM — укажи номер
     });
   </script>
 
@@ -72,6 +70,10 @@
       script.async = true;
       document.head.appendChild(script);
     })();
+  </script>
+
+</body>
+</html>
   </script>
 
 </body>
