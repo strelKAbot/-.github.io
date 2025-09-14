@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Мой лендинг с Rive и Coze</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+    #rive-canvas {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    /* Стиль для чата Coze */
+    #coze-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Привет! Это мой лендинг</h1>
+    <p>Здесь работает анимация Rive и ИИ-чат Coze</p>
+
+    <!-- Анимация Rive -->
+    <div id="rive-canvas"></div>
+  </div>
+
+  <!-- Rive скрипт (замени URL на свой) -->
+  <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+  <script>
+    const canvas = document.createElement('canvas');
+    document.getElementById('rive-canvas').appendChild(canvas);
+
+    const rive = new Rive({
+      src: 'https://cdn.rive.app/animations/your-animation.riv', // ← ЗАМЕНИ ЭТО НА СВОЙ ФАЙЛ!
+      canvas: canvas,
+      autoplay: true,
+      stateMachines: 0, // если есть SM — укажи номер
+    });
+  </script>
+
+  <!-- ИИ-чат Coze (вставь свой ID!) -->
+  <div id="coze-widget"></div>
+  <script>
+    (function() {
+      const script = document.createElement('script');
+      script.src = 'https://coze.cn/widget/твой-идентификатор-бота.js'; // ← ЗАМЕНИ ЭТО!
+      script.async = true;
+      document.head.appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>
